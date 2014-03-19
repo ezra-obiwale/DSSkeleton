@@ -1,0 +1,30 @@
+{
+    "name": "d-scribe/skeleton",
+    "type": "project",
+    "description": "Extension of default core classes and provision of addition utility classes",
+    "license": "MIT",
+    "keywords": ["dscribe", "framework", "core", "example", "skeleton"],
+    "authors": [
+        {
+            "name": "Ezra Obiwale",
+            "email": "contact@ezraobiwale.com",
+            "homepage": "http://ezraobiwale.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "d-scribe/core": "dev-master"
+    },
+    "suggest": {
+        "d-scribe/db-scribe": "For database operations, including auto-generation of tables",
+        "d-scribe/ds-live": "Extension for core library, providing more utility classes"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "vendor/d-scribe/core/src/Stdlib/"
+        },
+        "psr-4": {
+            "": "protected/modules/"
+        }
+    }
+}

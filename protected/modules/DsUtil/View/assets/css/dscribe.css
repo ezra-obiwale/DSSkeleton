@@ -1,0 +1,59 @@
+/*
+    Document   : dscribe
+    Created on : Sep 20, 2013, 11:49:02 PM
+    Author     : topman
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+h1 > a {
+	float:right;
+	margin-left:5px;
+}
+
+.btn-group{
+	margin-top:10px!important;
+}
+
+u, u > a {
+	font-weight:bolder;
+}
+
+u {
+	margin-bottom: 10px;
+}
+
+
+input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+textarea,select
+{
+	min-height:30px!important;
+	min-width:300px!important;
+}
+
+.element-group,
+.element-group .inner
+{
+	margin-bottom: 10px;
+}
+
+.element-group .inner {
+	display:inline;
+	margin-right:10px;
+}
+
+.element-group label:not(.inner)
+{
+	font-weight: bolder;
+	color:#0ac;
+}
+
+.element-group label .info {
+	color:#000;
+	text-decoration: underline;
+}
+
+.element-group label .info:hover {
+	color:#0ac;
+	text-decoration: none;
+}

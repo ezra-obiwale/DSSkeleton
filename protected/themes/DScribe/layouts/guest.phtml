@@ -1,0 +1,91 @@
+<?php
+$title = !empty($title) ? ' | ' . $title : null;
+$this->loadAsset('img/glyphicons-halflings.png')->loadAsset('img/glyphicons-halflings-white.png')->loadAsset('img/logo.png');
+?>
+<!DOCTYPE>
+<html>
+    <head>
+        <title><?= $this->name . $title ?></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <?= $this->loadCss('css/bootstrap.min', true) ?>
+        <?= $this->loadCss('css/bootstrap-responsive.min', true) ?>
+        <?= $this->loadCss('css/dscribe', true) ?>
+        <?= $this->loadIcon('img/logo.png', true) ?>
+        <style>
+            body {
+                margin-top:60px;
+                margin-bottom:100px;
+            }
+            .logo {
+                display:inline-block;
+                width:50px;
+                background:url(<?= $this->getAsset('img/logo.png') ?>) white no-repeat;
+                background-size:100% 100%;
+                margin-right:5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='container-fluid'>
+            <header class="row-fluid">
+                <div class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="navbar-inner">
+                        <div class="container">
+                            <div class="container">
+                                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </a>
+                                <a href="<?= $this->home() ?>" class="brand"><div class="logo">&nbsp;</div><?= $this->name ?></a>
+                                <div class="nav-collapse collapse">
+                                    <ul class="nav">
+                                        <li><a href="<?= $this->home() ?>">Home</a></li>
+                                        <li><a href="<?= $this->url('app', 'index', 'admin') ?>">Admin</a></li>
+                                        <?php if ($this->userIdentity()->isGuest()): ?>
+                                            <li><a href="<?= $this->url('app', 'index', 'login') ?>">Login</a></li>
+                                        <?php endif; ?>
+                                        <?php if (!$this->userIdentity()->isGuest()): ?>
+                                            <li><a href="<?= $this->url('app', 'index', 'logout') ?>">Logout</a></li>
+                                        <?php endif; ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </header>
+            <div class="row-fluid">
+                <div class="span12">
+                    <?php if ($this->flash()->hasMessage()): ?>
+                        <div class="text-<?= ($this->flash()->hasErrorMessage()) ? 'error' : 'success' ?>" style="text-align:center">
+                            <?=
+                            ($this->flash()->hasErrorMessage()) ? $this->flash()->getErrorMessage() :
+                                    $this->flash()->getSuccessMessage()
+                            ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="container">
+                        <div class="row-fluid">
+                            <?= $content ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-fixed-bottom">
+                <hr/>
+                <div class="container">
+                    <footer class="footer">
+                        &copy; 2013 DScribe Framework
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <?= $this->loadJs('js/jquery.min', true) ?>
+        <?= $this->loadJs('js/bootstrap.min', true) ?>
+    </body>
+</html>

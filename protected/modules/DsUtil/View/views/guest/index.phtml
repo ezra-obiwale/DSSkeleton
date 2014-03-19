@@ -1,0 +1,78 @@
+<h1><small class="text-error">DScribe Utility</small></h1>
+<div class="row-fluid">
+	<div class="span12">
+		This utility helps with reducing the amount of work you need to write
+		by creating redundant files for you. It helps to create
+		<a href="<?= $this->url('ds-util', 'modules', 'index') ?>">Modules</a>, Models,
+		Forms, Controllers, and Services.
+	</div>
+</div>
+<hr />
+<div class="row-fluid">
+	<marquee class="span12 text-success" style="font-weight:bolder">
+		Note: You should <a href="http://ezraobiwale.com/documentation/dscribe">consult the documentation</a> for details on manipulating every
+		part of your application.
+	</marquee>
+</div>
+<h2><small class="text-warning">Recommended Development Pattern</small></h2>
+<div class="row-fluid">
+	<div class="span12">
+		<ul class="thumbnails">
+			<li class="thumbnail">
+			<u class="thumbnail"><a href="<?= $this->url('ds-util', 'modules', 'index') ?>">Create Modules</a></u>
+			<p>
+				Modules contain every other component. Each module is independent
+				of others and can be activated/deactivated without affecting the
+				application as a whole. Therefore, it must be created first.
+			</p>
+			</li>
+			<li class="thumbnail">
+			<u class="thumbnail">Create Models</u>
+			<p>
+				Most applications are database driven. As such, models map to the each table
+				in your database. The properties of a model represent the columns in the table.
+			</p>
+			<p>
+				DScribe comes with a mapper class that makes interaction with your database a
+				walk through. You will have the option to use it or use your custom database
+				mapper.
+			</p>
+			<p>
+				Moreover, after creating one or more models, you may simply click the "Generate Files"
+				button to auto-generate CRUD pages and actions for the model(s). How simpler and
+				faster can it get?!
+			</p>
+			</li>
+			<li class="thumbnail">
+			<u class="thumbnail">Create Forms</u>
+			<p>
+				Applications require interactions and feedbacks from users. Enter forms. Forms
+				receive inputs from user. You will must likely store the inputs in your database.
+				Therefore, you should create your form to map your model object.
+			</p>
+			</li>
+			<li class="thumbnail">
+			<u class="thumbnail">Create Controllers</u>
+			<p>
+				Controllers are public accesses (routes) to different parts of your application. You
+				may restrict who access what from there. A controller will contain actions which
+				represents a part of your application. Each action will then have its view file.
+			</p>
+			</li>
+			<li class="thumbnail">
+			<u class="thumbnail">Create Services</u>
+			<p>
+				Applications can be service based. We actually encourage it. This allows you to separate
+				business logic from controllers and allow controllers focus on routing to different
+				parts of your application. As such, each controller should have a corresponding service.
+			</p>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="row-fluid">
+	<blink class="span12 text-warning" style="font-weight:bolder">
+		Note: You should <a href="http://ezraobiwale.com/documentation/dscribe">consult the documentation</a> for details on manipulating every
+		part of your application.
+	</blink>
+</div>

@@ -1,0 +1,72 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title><?= $this->name ?> | DSUtility</title>
+        <?= $this->loadCss('css/bootstrap.min') ?>
+        <?= $this->loadCss('css/bootstrap-responsive.min') ?>
+        <?= $this->loadCss('css/dscribe') ?>
+
+        <?= $this->loadJs('js/jquery.min') ?>
+        <?= $this->loadJs('js/dscribe') ?>
+        <style>
+            body {
+                margin-top:20px;
+                margin-bottom:100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='container-fluid'>
+            <div class="span8 offset2">
+                <header class="row-fluid">
+                    <h2 class="text-info"><a href="<?= $this->url('ds-util', 'guest', 'index') ?>" class="brand">DSUtility </a></h2>
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="container">
+                                <a title="go to main site" href="<?= $this->home() ?>" class="brand"><?= $this->name ?></a>
+                                <ul class="nav">
+                                    <li class="<?= ($this->module() === 'ds-util' && $this->controller() === 'guest' && $this->action() === 'index') ? 'active' : '' ?>"><a href="<?= $this->url('ds-util', 'guest', 'index') ?>">Util Home</a></li>
+                                    <?php if (!$this->userIdentity()->isGuest() && $this->userIdentity()->getUser()->check(array('id' => -1, 'role' => 'utilizer'))): ?>
+                                        <li class="<?= ($this->controller() !== 'guest') ? 'active' : '' ?>"><a href="<?= $this->url('ds-util', 'modules', 'index') ?>">Modules</a></li>
+                                        <li><a href="<?= $this->url('ds-util', 'guest', 'logout') ?>">Logout</a></li>
+                                    <?php endif; ?>
+                                    <?php if ($this->userIdentity()->isGuest() || !$this->userIdentity()->getUser()->check(array('id' => -1, 'role' => 'utilizer'))): ?>
+                                        <li class="<?= ($this->action() === 'login') ? 'active' : '' ?>"><a href="<?= $this->url('ds-util', 'guest', 'login') ?>">Login</a></li>
+                                    <?php endif; ?>
+                                </ul>
+                                <?php if ($this->userIdentity()->getUser()->getId() === -1): ?>
+                                    <div class="brand" style="float:right!important"><?= $this->userIdentity()->getUser()->getUsername() ?></div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <?php if ($this->flash()->hasMessage()): ?>
+                            <div class="text-<?= ($this->flash()->hasErrorMessage()) ? 'error' : 'success' ?>" style="text-align:center">
+                                <?=
+                                ($this->flash()->hasErrorMessage()) ? $this->flash()->getErrorMessage() :
+                                        $this->flash()->getSuccessMessage()
+                                ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <?= $content ?>
+                    </div>
+                </div>
+                <div class="navbar navbar-fixed-bottom" style="height:50px">
+                    <div class="span8 offset2 well well-small" style="height:50px">
+                        <footer class="footer" style="margin-bottom:40px">
+                            &copy; 2013 DScribe Framework
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?= $this->loadJs('js/bootstrap.min') ?>
+    </body>
+</html>

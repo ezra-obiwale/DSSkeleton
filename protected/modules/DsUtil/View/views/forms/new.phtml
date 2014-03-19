@@ -1,0 +1,30 @@
+<?php
+ob_start();
+echo $form->render();
+?>
+<script>
+	$(function(){
+		$('form .element-group.submit').append('<input type="submit" value="Save & Create New" class="btn btn-primary" name="saveAndNew" />');
+//		$('#model').change(function(){
+//			if ($(this).val() === '') {
+//				$('#elements').parent().show();
+//			}
+//			else{
+//				$('#elements').val('');
+//				$('#elements').parent().hide();
+//			}
+//		});
+//
+//		$('#model').change();
+
+		$('#elements').live('keyup', justComma);
+
+		$('input[name="name"]').live('keyup blur click', initCap);
+	});
+</script>
+<?php
+$this->loadLayout('template', array(
+	'heading' => $module . '\Forms - New',
+	'content' => ob_get_clean(),
+	'class' => 'span8 offset2'
+));

@@ -1,0 +1,17 @@
+<?php ob_start() ?>
+<div class="span9">
+    <?= $content ?>
+</div>
+
+<div class="span3">
+    <div class="sidebar-nav">
+        <ul>
+            <li><a href="http://www.ezraobiwale.com/d-scribe">DScribe Framework</a></li>
+            <li><a href="http://www.ezraobiwale.com/">Author</a></li>
+            <li><a href="http://www.ezraobiwale.com/d-scribe/documentation/index">Documentation</a></li>
+            <li><a href="http://www.ezraobiwale.com/d-scribe/user-guide/index">User Guide</a></li>
+        </ul>
+    </div>
+</div>
+<?php
+$this->loadLayout('main', array('content' => ob_get_clean()));

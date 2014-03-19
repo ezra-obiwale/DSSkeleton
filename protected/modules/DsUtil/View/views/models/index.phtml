@@ -1,0 +1,102 @@
+<?php
+Table::init(array('class' => 'table table-striped'));
+Table::setHeaders(array('Name', 'Properties', ''));
+
+foreach ($models as $model => $properties) {
+	$controllerBtn = '<span title="creates ' . $model . 'Controller with actions (index, new, edit, view, delete) and respective views, ' . $model . 'Service and ' . $model . 'Form">' . TwBootstrap::createDropDown('Generate Files', array(
+			'Overwrite existing' => array(
+				'children' => array(
+					'All' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 1, 'all', $model)),
+					),
+					'Form' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 1, 'forms', $model)),
+					),
+					'Controller' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 1, 'controllers', $model)),
+					),
+					'Views' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 1, 'views', $model)),
+					),
+					'Service' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 1, 'services', $model)),
+					),
+				)
+			),
+			'Igore existing' => array(
+				'children' => array(
+					'All' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 0, 'all', $model)),
+					),
+					'Form' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 0, 'forms', $model)),
+					),
+					'Controller' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 0, 'controllers', $model)),
+					),
+					'Views' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 0, 'views', $model)),
+					),
+					'Service' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 0, 'services', $model)),
+					),
+				)
+			),
+			), '', 'btn-warning') . '<span>';
+	Table::newRow();
+	Table::addRowData($model);
+	Table::addRowData(join(', ', $properties));
+	Table::addRowData($controllerBtn, array('width' => '100px'));
+}
+
+$controllersBtn = null;
+if (count($models) > 0)
+	$controllersBtn = '<span title="creates controllers with actions (index, new, edit, view, delete) and respective views, services and forms for all models">' . TwBootstrap::createDropDown('Generate Files', array(
+			'Overwrite existing' => array(
+				'children' => array(
+					'All' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 1, 'all')),
+					),
+					'Forms' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 1, 'forms')),
+					),
+					'Controllers' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 1, 'controllers')),
+					),
+					'Views' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 1, 'views')),
+					),
+					'Services' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 1, 'services')),
+					),
+				)
+			),
+			'Igore existing' => array(
+				'children' => array(
+					'All' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 0, 'all')),
+					),
+					'Forms' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 0, 'forms')),
+					),
+					'Controllers' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 0, 'controllers')),
+					),
+					'Views' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 0, 'views')),
+					),
+					'Services' => array(
+						'link' => $this->url('ds-util', 'models', 'auto-gen', array($module, 0, 'services')),
+					),
+				)
+			),
+			), 'pull-right', 'btn-warning') . '</span>';
+
+$newBtn = '<a href="' . $this->url('ds-util', 'models', 'new', array('module' => $module)) . '" class="btn btn-success">New Model</a>';
+
+$this->loadLayout('template', array(
+	'heading' => $module . '\Models',
+	'btns' => $newBtn . ' ' . $controllersBtn,
+	'content' => Table::render()
+));
+?>

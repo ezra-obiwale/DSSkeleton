@@ -1,0 +1,38 @@
+<?php ob_start(); ?>
+<div class="span10 offset1">
+    <div class="row-fluid">
+        <div class="span12">
+            <?= $content ?>
+        </div>
+    </div>
+    <hr />
+    <div class="row-fluid thumbnails">
+        <div class="span4 thumbnail">
+            <h2 style="text-align:center">
+                <small><a target="_blank" href="http://ezraobiwale.com/d-scribe/documentation/index">Documentation</a></small>
+            </h2>
+            <hr />
+            <p>
+                Going through the documentation may give you a good idea on how to handle the error
+            </p>
+        </div>
+        <div class="span4 thumbnail">
+            <h2 style="text-align:center"><small><a target="_blank" href="http://ezraobiwale.com/ds-cribe/forum/index">Forum</a></small></h2>
+            <hr />
+            <p>
+                In the almost impossible situation when going through the documentation does not help, you may browse through
+                topics in the forum to see if you issue has been addressed before. If not, simply add your issue and see how
+                quickly you get responses.
+            </p>
+        </div>
+        <div class="span4 thumbnail">
+            <h2 style="text-align:center"><small><a target="_blank" href="http://ezraobiwale.com">Author</a></small></h2>
+            <hr />
+            <p>
+                If all else fails, you may contact the author. I'll be more than willing to help out whichever way I can.
+            </p>
+        </div>
+    </div>
+</div>
+<?php
+$this->loadLayout('guest', array('content' => ob_get_clean()), true);

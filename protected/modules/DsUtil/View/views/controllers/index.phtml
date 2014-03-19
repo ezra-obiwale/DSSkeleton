@@ -1,0 +1,52 @@
+<?php
+Table::init(array('class' => 'table table-striped'));
+Table::setHeaders(array('Name', 'Actions'));
+
+foreach ($controllers as $controller => $actionsArray) {
+	if (isset($actionsArray['defaults']) && @$actionsArray['defaults']['controller'] . 'Controller' === $controller) {
+		$controllerOut = '<span class="text-success">' . $controller . '</span>';
+	} else {
+		$controllerOut = '<a href="' . $this->url('ds-util', 'controllers', 'make-default-controller', array($module, $controller)) . '" class="btn btn-small btn-warning">' . $controller . '</a>';
+	}
+	if (isset($actionsArray['defaults'])) {
+		$actions = '';
+		$cnt = 1;
+		foreach ($actionsArray['actions'] as $action) {
+			if (@$actionsArray['defaults']['controller'] . 'Controller' === $controller) {
+				if (isset($actionsArray['defaults']['action']) && $action === $actionsArray['defaults']['action']) {
+					$actions .= '<span class="text-success">' . $action . '</span> ';
+					continue;
+				}
+				$actions .= '<a href="' . $this->url('ds-util', 'controllers', 'make-default-action', array($module, $action)) . '" class="btn btn-mini btn-warning">' . $action . '</a> ';
+			} else {
+				$actions .= $action;
+				if ($cnt < count($actionsArray['actions']))
+					$actions .= ', ';
+			}
+			$cnt++;
+		}
+	}
+	else {
+		$actions = join(', ', $actionsArray['actions']);
+	}
+	Table::newRow();
+	Table::addRowData($controllerOut);
+	Table::addRowData($actions);
+}
+
+ob_start();
+echo Table::render();
+?>
+<script>
+	$(function(){
+		$('.btn').hover(function(){
+			$(this).toggleClass('btn-success')
+		});
+	});
+</script>
+<?php
+$this->loadLayout('template', array(
+	'heading' => $module . '\Controllers',
+	'btns' => '<a href="' . $this->url('ds-util', 'controllers', 'new', array('module' => $module)) . '" class="btn btn-success">New Controller</a>',
+	'content' => ob_get_clean()
+));

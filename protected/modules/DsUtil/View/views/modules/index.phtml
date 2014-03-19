@@ -1,0 +1,42 @@
+<?php
+Table::init(array('class' => 'table table-striped'));
+Table::setHeaders(array('Name', 'Status', ''));
+
+foreach ($modules as $module => $array) {
+	Table::newRow();
+
+	if ($array['default']) {
+		$moduleOut = '<span title="default module" class="text-success">' . $module . '</span>';
+	} else {
+		$moduleOut = '<a title="set as default module" class="btn btn-warning btn-mini" href="' . $this->url('ds-util', 'modules', 'make-default', array($module)) . '">' . $module . '</a>';
+	}
+	Table::addRowData($moduleOut);
+
+	$activate = '<a title="Activate module" href="' . $this->url('ds-util', 'modules', 'activate', array('module' => $module)) . '" class="btn off btn-mini">Off</a>';
+	$deactivate = '<a title="Deactivate module" href="' . $this->url('ds-util', 'modules', 'deactivate', array('module' => $module)) . '" class="btn on btn-mini btn-success">On</a>';
+	Table::addRowData(($array['status']) ? $deactivate : $activate);
+
+	$models = '<a title="view models" href="' . $this->url('ds-util', 'models', 'index', array('module' => $module)) . '" class="btn btn-mini btn-inverse">Models</a>';
+	$fieldsets = '<a title="view fieldsets" href="' . $this->url('ds-util', 'fieldsets', 'index', array('module' => $module)) . '" class="btn btn-mini btn-danger">Fieldsets</a>';
+	$forms = '<a title="view forms" href="' . $this->url('ds-util', 'forms', 'index', array('module' => $module)) . '" class="btn btn-mini btn-warning">Forms</a>';
+	$controllers = '<a title="view controllers" href="' . $this->url('ds-util', 'controllers', 'index', array('module' => $module)) . '" class="btn btn-mini btn-primary">Controllers</a>';
+	$services = '<a title="view services" href="' . $this->url('ds-util', 'services', 'index', array('module' => $module)) . '" class="btn btn-mini btn-success">Services</a>';
+	Table::addRowData($models . ' ' . $fieldsets . ' ' . $forms . ' ' . $controllers . ' ' . $services, array('width' => '300px'));
+}
+
+$this->loadLayout('template', array(
+	'heading' => 'Modules',
+	'btns' => '<a href="' . $this->url('ds-util', 'modules', 'new') . '" class="btn btn-success">New Module</a>',
+	'content' => Table::render()
+));
+?>
+<script>
+	$(function(){
+		$('a.on').hover(function(){
+			$(this).toggleClass('btn-success');
+		});
+		$('a.off').hover(function(){
+			$(this).toggleClass('btn-success');
+		});
+	});
+</script>

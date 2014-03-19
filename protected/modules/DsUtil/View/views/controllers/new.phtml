@@ -1,0 +1,18 @@
+<?php
+ob_start();
+echo $form->render();
+?>
+<script>
+	$(function(){
+		$('form .element-group.submit').append('<input type="submit" value="Save & Create New" class="btn btn-primary" name="saveAndNew" />');
+		$('#actions, #noCache, #views').live('keyup', justComma);
+
+		$('input[name="name"]').live('keyup blur click', initCap);
+	});
+</script>
+<?php
+$this->loadLayout('template', array(
+	'heading' => $module . '\Controllers - New',
+	'content' => ob_get_clean(),
+	'class' => 'span8 offset2'
+));
