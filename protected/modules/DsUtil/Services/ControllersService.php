@@ -355,15 +355,22 @@ foreach ($models as $model) {
 </div>
 <div class="row-fluid">
 	<div class="span8 offset1">
-		<?php
-		foreach ($properties as $name) {
-			?>
-
-			<p><span class="text-info"><?= ucwords(str_replace('_', ' ', $name)) ?></span>: <span><\?= $model->get<?= ucfirst(\Util::_toCamel($name)) ?>() ?></span></p>
-			<?php
-		}
-		?>
-
+            <\?php
+                foreach ($model->toArray() as $column => $value) {
+                    if ($column === 'id')
+                        continue;
+                    ?>
+                    <div class="row-fluid">
+                        <div class="span3">
+                            <\?= ucwords(str_replace('_', ' ', $column)) ?>
+                        </div>
+                        <div class="span9">
+                            <\?= $val ?>
+                        </div>
+                    </div>
+                    <\?php
+                }
+            ?>
 	</div>
 </div>
 		<?php
