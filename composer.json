@@ -16,7 +16,7 @@
         "d-scribe/core": "dev-master"
     },
     "suggest": {
-        "d-scribe/db-scribe": "For database operations, including auto-generation of tables",
+        "d-scribe/db-scribe": "For database operations, including auto-generation/auto-update of tables and/or models",
         "d-scribe/ds-live": "Extension for core library, providing more utility classes"
     },
     "autoload": {

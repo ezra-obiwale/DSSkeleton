@@ -14,11 +14,17 @@ define('CACHE', DATA . 'cache' . DIRECTORY_SEPARATOR);
 // load overall config
 $config = require CONFIG . 'global.php';
 
-// load module level config
+$moduleAutoload = array();
+
+// load module level config and autoloads
 foreach ($config['modules'] as $module => &$conf) {
-    $moduleConfig = MODULES . $module . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'global.php';
+    $moduleConfig = MODULES . $module . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'local.php';
     if (is_array($conf) && is_readable($moduleConfig)) {
-        $conf = array_merge(include $moduleConfig, $conf);
+        $moduleConfig = include $moduleConfig;
+        $conf = array_merge($moduleConfig, $conf);
+
+        if (isset($moduleConfig['autoload']))
+            $moduleAutoload[$module] = $moduleConfig['autoload'];
     }
 }
 
@@ -43,4 +49,4 @@ function errorHandler($code, $msg, $file, $line) {
 
 set_error_handler('errorHandler', E_COMPILE_ERROR | E_CORE_ERROR | E_ERROR | E_PARSE | E_RECOVERABLE_ERROR | E_USER_ERROR);
 
-require_once 'vendor/autoload.php';
+require_once 'autoloader.php';

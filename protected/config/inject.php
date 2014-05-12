@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Injects classes into different parts of the application with aliases
  *
@@ -27,36 +28,24 @@
  * To get the number of elements in the object, call $this->ao->count();
  */
 return array(
-	'all' => array(
-		/*
-		 * Inject classes into views, controllers, and services
-		 */
-		'util' => array(
-			'class' => 'Util'
-		)
-	),
-	'controllers' => array(
-	/*
-	 * Inject classes into controllers only
-	 */
-	),
-	'services' => array(
-	/**
-	 * Inject classes into services only
-	 */
-	),
-	'views' => array(
-		/*
-		 * Inject classes into views only
-		 */
-		'twb' => array(
-			'class' => 'TwBootstrap'
-		),
-		'twbForm' => array(
-			'class' => 'TwbForm'
-		),
-		'table' => array(
-			'class' => 'Table'
-		)
-	),
+    'all' => array(
+    /*
+     * Inject classes into views, controllers, and services
+     */
+    ),
+    'controllers' => array(
+    /*
+     * Inject classes into controllers only
+     */
+    ),
+    'services' => array(
+    /**
+     * Inject classes into services only
+     */
+    ),
+    'views' => array(
+    /*
+     * Inject classes into views only
+     */
+    ),
 );
