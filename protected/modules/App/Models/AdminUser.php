@@ -22,12 +22,4 @@ class AdminUser extends AUser {
         return 'admin';
     }
 
-    public function getTableName() {
-        
-    }
-
-    public function populate(array $data) {
-        
-    }
-
 }

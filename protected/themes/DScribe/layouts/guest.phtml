@@ -41,10 +41,10 @@ $this->loadAsset('img/glyphicons-halflings.png')->loadAsset('img/glyphicons-half
                                 <a href="<?= $this->home() ?>" class="brand"><div class="logo">&nbsp;</div><?= $this->name ?></a>
                                 <div class="nav-collapse collapse">
                                     <ul class="nav">
-                                        <li><a href="<?= $this->home() ?>">Home</a></li>
-                                        <li><a href="<?= $this->url('app', 'index', 'admin') ?>">Admin</a></li>
+                                        <li class="<?= ($this->controller() === 'index' && $this->action() === 'index') ? 'active' : '' ?>"><a href="<?= $this->home() ?>">Home</a></li>
+                                        <li class="<?= ($this->controller() === 'index' && $this->action() === 'admin') ? 'active' : '' ?>"><a href="<?= $this->url('app', 'index', 'admin') ?>">Admin</a></li>
                                         <?php if ($this->userIdentity()->isGuest()): ?>
-                                            <li><a href="<?= $this->url('app', 'index', 'login') ?>">Login</a></li>
+                                            <li class="<?= ($this->controller() === 'index' && $this->action() === 'login') ? 'active' : '' ?>"><a href="<?= $this->url('app', 'index', 'login') ?>">Login</a></li>
                                         <?php endif; ?>
                                         <?php if (!$this->userIdentity()->isGuest()): ?>
                                             <li><a href="<?= $this->url('app', 'index', 'logout') ?>">Logout</a></li>
