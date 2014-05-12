@@ -1,9 +1,9 @@
 <?php
 
 return array(
-    'server' => 'development',
+    'server' => 'production',
     'app' => array(
-        'name' => 'DScribe',
+        'name' => 'DScribe Skeleton',
     ),
     'modules' => array(
         /*
