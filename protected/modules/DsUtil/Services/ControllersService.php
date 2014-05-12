@@ -115,8 +115,9 @@ class <?= ucfirst($data->name) ?>Controller extends <?= $extendInfo['filename'] 
         if (class_exists($service)) :
             ?>
 
-        /*
+        /**
          * @var \<?= $service ?>
+         
          */
          protected $service;
         <?php endif; ?>
@@ -223,7 +224,7 @@ foreach ($models as $model) {
 	Table::newRow();
 	<?= $columns ?>
 
-	Table::addRowData($viewBtn . ' ' . $editBtn . ' ' . $deleteBtn, array('width' => '100px');
+	Table::addRowData($viewBtn . ' ' . $editBtn . ' ' . $deleteBtn, array('width' => '100px'));
 }
 ?>
 <div class="row-fluid">
@@ -355,22 +356,15 @@ foreach ($models as $model) {
 </div>
 <div class="row-fluid">
 	<div class="span8 offset1">
-            <\?php
-                foreach ($model->toArray() as $column => $value) {
-                    if ($column === 'id')
-                        continue;
-                    ?>
-                    <div class="row-fluid">
-                        <div class="span3">
-                            <\?= ucwords(str_replace('_', ' ', $column)) ?>
-                        </div>
-                        <div class="span9">
-                            <\?= $val ?>
-                        </div>
-                    </div>
-                    <\?php
-                }
-            ?>
+		<?php
+		foreach ($properties as $name) {
+			?>
+
+			<p><span class="text-info"><?= ucwords(str_replace('_', ' ', $name)) ?></span>: <span><\?= $model->get<?= ucfirst(\Util::_toCamel($name)) ?>() ?></span></p>
+			<?php
+		}
+		?>
+
 	</div>
 </div>
 		<?php

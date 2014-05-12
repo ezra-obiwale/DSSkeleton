@@ -143,7 +143,7 @@ class <?= ucfirst($data->name) ?> extends <?= $info['filename'] ?> {
 		));
 	}
 
-	public function filters() {
+	public function getFilters() {
 		return array(
 		<?php
 		foreach (explode(',', $data->elements) as $element):
