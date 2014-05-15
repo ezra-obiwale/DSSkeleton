@@ -34,9 +34,13 @@ return array(
     ),
     'db' => array(
         'development' => array(
-            'dsn' => 'mysql:host=localhost;dbname=test',
-            'user' => 'dev',
-            'password' => 'dev',
+            'dsn' => 'mysql:host=localhost;dbname=ds_db',
+            'user' => '',
+            'password' => '',
+            'options' => array(
+                'tablePrefix' => 'ds_',
+                'create' => true
+            )
         ),
         'production' => array(
         ),
