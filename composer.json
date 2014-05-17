@@ -20,9 +20,6 @@
         "d-scribe/ds-live": "Extension for core library, providing more utility classes"
     },
     "autoload": {
-        "psr-0": {
-            "": "vendor/d-scribe/core/src/Stdlib/"
-        },
         "psr-4": {
             "": "protected/modules/"
         }
