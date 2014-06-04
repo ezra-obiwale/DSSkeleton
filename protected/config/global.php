@@ -6,18 +6,6 @@ return array(
         'name' => 'DScribe Skeleton',
     ),
     'modules' => array(
-        /*
-          'DsUtil' =>    array (
-          'defaults' =>      array (
-          'controller' => 'Guest',
-          'action' => 'index',
-          ),
-          'access' =>      array (
-          'username' => 'admin',
-          'password' => 'admin',
-          ),
-          ),
-         */
         'App' => array(
             'alias' => 'site',
             'defaults' => array(
