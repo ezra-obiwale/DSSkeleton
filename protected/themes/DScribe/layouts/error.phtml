@@ -1,13 +1,13 @@
 <?php ob_start(); ?>
 <div class="span10 offset1">
     <div class="row-fluid">
-        <div class="span12">
+        <div class="alert alert-error span12">
             <?php
-            	if ($this->userIdentity()->getUser()->is('guest'))
-            		echo $exception->message;
-            	else
-            		echo $exception->messageWithTrace;
-             ?>
+            if ($this->userIdentity()->getUser()->is('guest'))
+                echo $exception->message;
+            else
+                echo $exception->messageWithTrace;
+            ?>
         </div>
     </div>
     <hr />
