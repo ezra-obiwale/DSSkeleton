@@ -55,18 +55,27 @@ $this->loadAsset('img/glyphicons-halflings.png')->loadAsset('img/glyphicons-half
                         </div>
                     </div>
             </header>
-            <div class="row-fluid">
-                <div class="span12">
-                    <?php if ($this->flash()->hasMessage()): ?>
-                        <div class="text-<?= ($this->flash()->hasErrorMessage()) ? 'error' : 'success' ?>" style="text-align:center">
-                            <?=
-                            ($this->flash()->hasErrorMessage()) ? $this->flash()->getErrorMessage() :
-                                    $this->flash()->getSuccessMessage()
-                            ?>
-                        </div>
-                    <?php endif; ?>
+            <?php if ($this->flash()->hasMessage()): ?>
+                <div class="row-fluid">
+                    <div class="span12 alert alert-info flash" style="text-align:center">
+                        <?= $this->flash()->getMessage() ?>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
+            <?php if ($this->flash()->hasSuccessMessage()): ?>
+                <div class="row-fluid">
+                    <div class="span12 alert alert-success flash" style="text-align:center">
+                        <?= $this->flash()->getSuccessMessage() ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php if ($this->flash()->hasErrorMessage()): ?>
+                <div class="row-fluid">
+                    <div class="span12 alert alert-error flash" style="text-align:center">
+                        <?= $this->flash()->getErrorMessage() ?>
+                    </div>
+                </div>
+            <?php endif; ?>
             <div class="row-fluid">
                 <div class="span12">
                     <div class="container">
