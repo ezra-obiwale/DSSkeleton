@@ -13,8 +13,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "d-scribe/core": "dev-master",
-        "d-scribe/ds-live": "dev-master"
+        "d-scribe/core": "dev-master"
     },
     "suggest": {
         "d-scribe/ds-live": "Extension for core library, providing more utility classes"
