@@ -9,7 +9,6 @@ $this->loadAsset('img/glyphicons-halflings.png')->loadAsset('img/glyphicons-half
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?= $this->loadCss('css/bootstrap.min', true) ?>
-        <?= $this->loadCss('css/bootstrap-responsive.min', true) ?>
         <?= $this->loadCss('css/dscribe', true) ?>
         <?= $this->loadIcon('img/logo.png', true) ?>
         <style>
@@ -25,6 +24,7 @@ $this->loadAsset('img/glyphicons-halflings.png')->loadAsset('img/glyphicons-half
                 margin-right:5px;
             }
         </style>
+        <?= $this->loadCss('css/bootstrap-responsive.min', true) ?>
     </head>
     <body>
         <div class='container-fluid'>
@@ -32,25 +32,23 @@ $this->loadAsset('img/glyphicons-halflings.png')->loadAsset('img/glyphicons-half
                 <div class="navbar navbar-inverse navbar-fixed-top">
                     <div class="navbar-inner">
                         <div class="container">
-                            <div class="container">
-                                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </a>
-                                <a href="<?= $this->home() ?>" class="brand"><div class="logo">&nbsp;</div><?= $this->name ?></a>
-                                <div class="nav-collapse collapse">
-                                    <ul class="nav">
-                                        <li class="<?= ($this->controller() === 'index' && $this->action() === 'index') ? 'active' : '' ?>"><a href="<?= $this->home() ?>">Home</a></li>
-                                        <li class="<?= ($this->controller() === 'index' && $this->action() === 'admin') ? 'active' : '' ?>"><a href="<?= $this->url('app', 'index', 'admin') ?>">Admin</a></li>
-                                        <?php if ($this->userIdentity()->isGuest()): ?>
-                                            <li class="<?= ($this->controller() === 'index' && $this->action() === 'login') ? 'active' : '' ?>"><a href="<?= $this->url('app', 'index', 'login') ?>">Login</a></li>
-                                        <?php endif; ?>
-                                        <?php if (!$this->userIdentity()->isGuest()): ?>
-                                            <li><a href="<?= $this->url('app', 'index', 'logout') ?>">Logout</a></li>
-                                        <?php endif; ?>
-                                    </ul>
-                                </div>
+                            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </a>
+                            <a href="<?= $this->home() ?>" class="brand"><div class="logo">&nbsp;</div><?= $this->name ?></a>
+                            <div class="nav-collapse collapse">
+                                <ul class="nav">
+                                    <li class="<?= ($this->controller() === 'index' && $this->action() === 'index') ? 'active' : '' ?>"><a href="<?= $this->home() ?>">Home</a></li>
+                                    <li class="<?= ($this->controller() === 'index' && $this->action() === 'admin') ? 'active' : '' ?>"><a href="<?= $this->url('app', 'index', 'admin') ?>">Admin</a></li>
+                                    <?php if ($this->userIdentity()->isGuest()): ?>
+                                        <li class="<?= ($this->controller() === 'index' && $this->action() === 'login') ? 'active' : '' ?>"><a href="<?= $this->url('app', 'index', 'login') ?>">Login</a></li>
+                                    <?php endif; ?>
+                                    <?php if (!$this->userIdentity()->isGuest()): ?>
+                                        <li><a href="<?= $this->url('app', 'index', 'logout') ?>">Logout</a></li>
+                                    <?php endif; ?>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -78,7 +76,7 @@ $this->loadAsset('img/glyphicons-halflings.png')->loadAsset('img/glyphicons-half
             <?php endif; ?>
             <div class="row-fluid">
                 <div class="span12">
-                    <div class="container">
+                    <div class="container-fluid">
                         <div class="row-fluid">
                             <?= $content ?>
                         </div>
@@ -87,7 +85,7 @@ $this->loadAsset('img/glyphicons-halflings.png')->loadAsset('img/glyphicons-half
             </div>
             <div class="navbar-fixed-bottom">
                 <hr/>
-                <div class="container">
+                <div class="container-fluid">
                     <footer class="footer">
                         &copy; 2013 DScribe Framework
                     </footer>
