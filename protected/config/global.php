@@ -4,7 +4,8 @@ return array(
     'server' => 'production',
     'app' => array(
         'name' => 'DScribe Skeleton',
-        'domain' => 'http://dscribe.ezraobiwale.com'
+        'domain' => 'http://dscribe.ezraobiwale.com',
+        'webmaster' => 'dscribe@ezraobiwale.com'
     ),
     'modules' => array(
         'App' => array(
