@@ -2,14 +2,36 @@
 
 error_reporting(E_ALL | E_ERROR);
 
-define('ROOT', __DIR__ . DIRECTORY_SEPARATOR);
-define('APP', ROOT . 'protected' . DIRECTORY_SEPARATOR);
-define('VENDOR', ROOT . 'vendor' . DIRECTORY_SEPARATOR);
-define('MODULES', APP . 'modules' . DIRECTORY_SEPARATOR);
-define('THEMES', APP . 'themes' . DIRECTORY_SEPARATOR);
-define('CONFIG', APP . 'config' . DIRECTORY_SEPARATOR);
-define('DATA', APP . 'data' . DIRECTORY_SEPARATOR);
-define('CACHE', DATA . 'cache' . DIRECTORY_SEPARATOR);
+include_once 'ini.php';
+
+if (defined('DATA') && !is_dir(DATA))
+    mkdir(DATA);
+if (defined('CACHE') && !is_dir(CACHE))
+    mkdir(CACHE);
+
+/**
+ * Execute a method of the defined engine
+ * @param string $methodName
+ * @param mixed $_ Parameters for the method
+ * @return mixed
+ */
+function engine($methodName, $_ = null) {
+    $params = func_get_args();
+    unset($params[0]);
+    return call_user_func_array(array(ENGINE, $methodName), $params);
+}
+
+/**
+ * Execute a get method of the defined engine
+ * @param string $methodName Method name with the "get" prefix
+ * @param mixed $_ Parameters for the method
+ * @return mixed
+ */
+function engineGet($methodName, $_ = null) {
+    $params = func_get_args();
+    unset($params[0]);
+    return call_user_func_array(array(ENGINE, 'get' . $methodName), $params);
+}
 
 // load overall config
 $config = require CONFIG . 'global.php';
