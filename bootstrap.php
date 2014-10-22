@@ -3,11 +3,7 @@
 error_reporting(E_ALL | E_ERROR);
 
 include_once 'ini.php';
-
-if (defined('DATA') && !is_dir(DATA))
-    mkdir(DATA);
-if (defined('CACHE') && !is_dir(CACHE))
-    mkdir(CACHE);
+ini_set('display_errors', 1);
 
 /**
  * Execute a method of the defined engine
