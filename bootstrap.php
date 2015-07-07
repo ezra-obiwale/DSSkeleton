@@ -1,6 +1,6 @@
 <?php
 
-error_reporting(E_ALL | E_ERROR);
+error_reporting(E_ERROR | E_CORE_ERROR | E_COMPILE_ERROR);
 
 include_once 'ini.php';
 ini_set('display_errors', 1);
