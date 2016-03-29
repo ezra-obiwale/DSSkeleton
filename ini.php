@@ -8,4 +8,4 @@ define('THEMES', APP . 'themes' . DIRECTORY_SEPARATOR);
 define('CONFIG', APP . 'config' . DIRECTORY_SEPARATOR);
 define('DATA', APP . 'data' . DIRECTORY_SEPARATOR);
 define('CACHE', DATA . 'cache' . DIRECTORY_SEPARATOR);
-define('ENGINE', 'DScribe\Core\Engine');
+define('ENGINE', 'dScribe\Core\Engine');

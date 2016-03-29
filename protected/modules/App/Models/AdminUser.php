@@ -5,7 +5,7 @@
 
 namespace App\Models;
 
-use DScribe\Core\AUser;
+use dScribe\Core\AUser;
 
 /**
  * Description of AdminUser
