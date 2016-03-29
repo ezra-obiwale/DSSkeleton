@@ -3,7 +3,7 @@
 return array(
     'server' => 'production',
     'app' => array(
-        'name' => 'DScribe Skeleton',
+        'name' => 'dScribe Skeleton',
         'domain' => 'http://dscribe.ezraobiwale.com',
         'webmaster' => 'dscribe@ezraobiwale.com'
     ),
@@ -18,7 +18,7 @@ return array(
     ),
     'defaults' => array(
         'module' => 'App',
-        'theme' => 'DScribe',
+        'theme' => 'dScribe',
         'defaultLayout' => 'guest',
         'errorLayout' => 'error',
     ),

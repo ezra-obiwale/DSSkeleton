@@ -1,6 +1,6 @@
 <?php
 
-error_reporting(E_ALL | E_ERROR);
+error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_WARNING);
 
 include_once 'ini.php';
 ini_set('display_errors', 1);
@@ -47,13 +47,13 @@ foreach ($config['modules'] as $module => &$conf) {
 }
 
 // show | hide errors based on server type
-if (@strtolower(@$config['server']) == 'development')
+if (@$config['displayErrors'] || @strtolower(@$config['server']) == 'development')
     ini_set('display_errors', 1);
 else
     ini_set('display_errors', 0);
 
 function exceptionHandler(\Exception $ex) {
-    $cEx = new \DScribe\Core\Exception($ex->getMessage(), false, false);
+    $cEx = new \dScribe\Core\Exception($ex->getMessage(), false, false);
     $cEx->specifics($ex->getFile(), $ex->getLine());
     $cEx->push();
     exit;

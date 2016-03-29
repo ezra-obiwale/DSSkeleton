@@ -4,7 +4,7 @@
 
 namespace App\Forms;
 
-use DScribe\Form\Form;
+use dScribe\Form\Form;
 
 /**
  * Description of LoginForm

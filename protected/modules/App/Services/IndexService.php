@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use DScribe\Core\AService;
+use dScribe\Core\AService;
 
 class IndexService extends AService {
 

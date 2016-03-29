@@ -12,4 +12,3 @@ RewriteRule ^(.*)$ /public/$1
 
 # Do not change this line
 RewriteRule ^(/)?$ public/index.php [L]
-

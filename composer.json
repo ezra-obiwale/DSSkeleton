@@ -14,10 +14,8 @@
     "require": {
         "php": ">=5.3.0",
         "d-scribe/core": "dev-master",
-        "d-scribe/db-scribe": "dev-master"
-    },
-    "suggest": {
-        "d-scribe/ds-live": "Extension for core library, providing more utility classes"
+        "d-scribe/db-scribe": "dev-master",
+        "d-scribe/ds-live": "dev-master"
     },
     "autoload": {
         "psr-4": {

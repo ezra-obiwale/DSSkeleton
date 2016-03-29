@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\AdminUser,
-	DScribe\Core\AController;
+	dScribe\Core\AController;
 
 class IndexController extends AController {
 
