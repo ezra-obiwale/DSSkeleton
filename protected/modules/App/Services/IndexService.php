@@ -9,7 +9,7 @@ class IndexService extends AService {
 	protected $loginForm;
 
 	protected function init() {
-
+		
 	}
 
 	protected function inject() {

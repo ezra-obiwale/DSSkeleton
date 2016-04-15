@@ -2,12 +2,10 @@
 <div class="span10 offset1">
     <div class="row-fluid">
         <div class="alert alert-error span12">
-            <?php
-            if ($this->userIdentity()->getUser()->is('guest'))
-                echo $exception->message;
-            else
-                echo $exception->messageWithTrace;
-            ?>
+			<?php
+			if ($this->userIdentity()->getUser()->is('guest')) echo $exception->message;
+			else echo $exception->messageWithTrace;
+			?>
         </div>
     </div>
     <hr />

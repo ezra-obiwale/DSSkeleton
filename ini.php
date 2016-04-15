@@ -2,6 +2,7 @@
 
 define('ROOT', __DIR__ . DIRECTORY_SEPARATOR);
 define('APP', ROOT . 'protected' . DIRECTORY_SEPARATOR);
+define('ASSETS', ROOT . 'assets' . DIRECTORY_SEPARATOR);
 define('VENDOR', ROOT . 'vendor' . DIRECTORY_SEPARATOR);
 define('MODULES', APP . 'modules' . DIRECTORY_SEPARATOR);
 define('THEMES', APP . 'themes' . DIRECTORY_SEPARATOR);

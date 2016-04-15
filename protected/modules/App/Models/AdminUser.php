@@ -14,12 +14,12 @@ use dScribe\Core\AUser;
  */
 class AdminUser extends AUser {
 
-    public function getId() {
-        return 1;
-    }
+	public function getId() {
+		return 1;
+	}
 
-    public function getRole() {
-        return 'admin';
-    }
+	public function getRole() {
+		return 'admin';
+	}
 
 }

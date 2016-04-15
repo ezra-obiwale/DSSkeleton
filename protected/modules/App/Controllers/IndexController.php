@@ -16,12 +16,12 @@ class IndexController extends AController {
 			array('deny', array(
 					'role' => 'guest',
 					'actions' => 'admin'
-			)),
+				)),
 		);
 	}
 
 	public function indexAction() {
-
+		
 	}
 
 	public function adminAction() {
@@ -40,8 +40,8 @@ class IndexController extends AController {
 		}
 
 		return $this->view->variables(array(
-				'form' => $form,
-			));
+					'form' => $form,
+		));
 	}
 
 	public function logoutAction() {

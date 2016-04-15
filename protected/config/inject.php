@@ -28,24 +28,24 @@
  * To get the number of elements in the object, call $this->ao->count();
  */
 return array(
-    'all' => array(
-    /*
-     * Inject classes into views, controllers, and services
-     */
-    ),
-    'controllers' => array(
-    /*
-     * Inject classes into controllers only
-     */
-    ),
-    'services' => array(
-    /**
-     * Inject classes into services only
-     */
-    ),
-    'views' => array(
-    /*
-     * Inject classes into views only
-     */
-    ),
+	'all' => array(
+	/*
+	 * Inject classes into views, controllers, and services
+	 */
+	),
+	'controllers' => array(
+	/*
+	 * Inject classes into controllers only
+	 */
+	),
+	'services' => array(
+	/**
+	 * Inject classes into services only
+	 */
+	),
+	'views' => array(
+	/*
+	 * Inject classes into views only
+	 */
+	),
 );
