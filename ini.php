@@ -1,6 +1,7 @@
 <?php
 
 define('ROOT', __DIR__ . DIRECTORY_SEPARATOR);
+define('BASE', basename(ROOT));
 define('APP', ROOT . 'protected' . DIRECTORY_SEPARATOR);
 define('ASSETS', ROOT . 'assets' . DIRECTORY_SEPARATOR);
 define('VENDOR', ROOT . 'vendor' . DIRECTORY_SEPARATOR);
