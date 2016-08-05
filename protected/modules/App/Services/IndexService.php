@@ -2,7 +2,8 @@
 
 namespace App\Services;
 
-use dScribe\Core\AService;
+use App\Forms\LoginForm,
+	dScribe\Core\AService;
 
 class IndexService extends AService {
 
@@ -12,16 +13,8 @@ class IndexService extends AService {
 		
 	}
 
-	protected function inject() {
-		return array(
-			'loginForm' => array(
-				'class' => 'App\Forms\LoginForm',
-			),
-		);
-	}
-
 	public function getLoginForm() {
-		return $this->loginForm;
+		return new LoginForm;
 	}
 
 }

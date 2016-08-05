@@ -1,3 +1,17 @@
+Options -Indexes
+
+# Block access to all php files
+<FilesMatch "\.php|\.phtml">
+	Order allow,deny
+	Deny from all
+</FilesMatch>
+
+# Allow access to index.php files
+<Files index.php>
+	Order deny,allow
+	Allow from all
+</Files>
+
 # Do not change this line.
 
 RewriteEngine on
